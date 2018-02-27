@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编写文章</title>
+</head>
+<body>
+    <div>
+        {% include "blog/detail.html" %}
+        <form action="{% url 'blog:write' %}" method="POST" name="article" target="_blank" accept-charset="UTF-8">
+
+            <b>文章标题:</b>
+            <br/>
+            <input name="title" type="text" maxlength="20" />
+            <br/>
+
+            <b>文章作者:</b>
+            <br/>
+            <input name="author" type="text" maxlength="20" />
+            <br/>
+
+            <b>文章内容:</b>
+            <br/>
+            <textarea name="content" rows="20" cols="50">
+            </textarea>
+            <br/>
+
+            <input type="submit" name="send" value="提交" />
+            {% csrf_token %}
+        </form>
+    </div>
+</body>
+</html>

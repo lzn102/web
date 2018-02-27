@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="keywords" content="blog, python, django">
+    <title>文章详情</title>
+</head>
+<body>
+    <div>
+        {% block head %}
+        <span>
+            <ul>
+                <li><a href="{% url 'blog:index' %}">blog</a></li>
+                <li><a href="{% url 'blog:write' %}">write</a></li>
+            </ul>
+        </span>
+        {% endblock %}
+        <span>
+            <h1>{{ article.title }}</h1>
+            <small>By-{{ article.author }} &#160 &#160 {{ article.add_time }}</small>
+            <p>{{ article.content }}</p>
+        </span>
+    </div>
+</body>
+</html>
